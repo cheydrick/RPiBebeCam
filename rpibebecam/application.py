@@ -1,7 +1,11 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, Blueprint
+from flask_bootstrap import Bootstrap
 
 def create_app():
     app = Flask(__name__)
+
+    app.register_blueprint(viewer)
+    Bootstrap(app)
 
     # flask.pocoo.org/snippets/67/
     @app.route('/shutdown')
@@ -13,3 +17,9 @@ def create_app():
         return 'Shutting down server...'
 
     return app
+
+viewer = Blueprint('viewer', __name__)
+
+@viewer.route('/')
+def index():
+    return render_template('index.html')
