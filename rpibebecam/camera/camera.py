@@ -32,17 +32,16 @@ class Camera(object):
 
             while self.running == False:
                 time.sleep(0)
+                
+        self.initialized = True
 
     def get_frame(self):
-        frame_bytes = io.BytesIO()
-        frame_bytes.write(self.frame)
-        frame_bytes.seek(0)
-        return frame_bytes
+        return self.frame
 
     def _thread(self):
         self.running = True
 
-        stream = io.Bytes()
+        stream = io.BytesIO()
 
         while self.running == True:
             self.picamera.capture(stream, self.image_type)
