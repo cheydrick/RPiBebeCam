@@ -7,6 +7,7 @@ import picamera
 # https://github.com/miguelgrinberg/flask-video-streaming
 
 # TODO: make get_frame() wait for the thread to finish writing self.frame
+# TODO: replace time.sleep() with threading.event
 
 class Camera(object):
     """ """
