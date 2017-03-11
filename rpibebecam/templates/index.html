@@ -1,6 +1,10 @@
 {% extends "bootstrap/base.html" %}
 {% block title %}RPiBebeCam{% endblock %}
 
+{% block navbar %}
+{{ nav.navbar.render() }}
+{% endblock %}
+
 {% block content %}
 	<h1>Testing 123</h1>
 {% endblock %}

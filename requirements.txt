@@ -2,3 +2,4 @@ RPiBebeCam
 Flask==0.12
 picamera==1.13
 flask-bootstrap==3.3.7.1
+flask-nav==0.6
