@@ -37,7 +37,10 @@ class Camera(object):
         self.initialized = True
 
     def get_frame(self):
-        return self.frame
+        frame_bytes = io.BytesIO()
+        frame_bytes.write(self.frame)
+        frame_bytes.seek(0)
+        return frame_bytes
 
     def _thread(self):
         self.running = True
