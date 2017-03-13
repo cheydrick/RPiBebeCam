@@ -6,5 +6,23 @@
 {% endblock %}
 
 {% block content %}
-	<h1>Testing 123</h1>
+<div>	
+	<h1>Testing 123456</h1>
+	<img id="frame" src={{ url_for('viewer.frame') }} />
+
+	<script type="text/javascript">
+		var newImage = new Image();
+		newImage.src = "{{ url_for('viewer.frame') }}";
+
+		function updateImage(){
+			if(newImage.complete){
+				document.getElementById("frame").src = newImage.src;
+				newImage = new Image();
+				newImage.src = "{{ url_for('viewer.frame') }}" + "?time=" + new Date().getTime();
+			}
+		setTimeout(updateImage, 2000);
+		}
+	</script>
+</div>
+<script>updateImage();</script>
 {% endblock %}
